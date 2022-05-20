@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="event1"
+            type="com.kenshi.livedatastateflow.Event" />
+
+        <variable
+            name="event2"
+            type="com.kenshi.livedatastateflow.Event" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tv_livedata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Livedata counter"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_livedata"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_livedata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="liveData click"
+            app:layout_constraintBottom_toTopOf="@id/tv_flow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_livedata" />
+
+
+        <TextView
+            android:id="@+id/tv_flow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flow counter"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_flow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_livedata" />
+
+        <Button
+            android:id="@+id/btn_flow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flow click"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_flow" />
+
+        <ImageView
+            android:id="@+id/iv_event_livedata"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@color/teal_700"
+            android:visibility="@{event1.num1 >= 5 &amp;&amp; event1.num2 >= 5 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_livedata"
+            app:layout_constraintBottom_toTopOf="@id/btn_livedata"/>
+
+        <ImageView
+            android:id="@+id/iv_event_flow"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@color/teal_200"
+            android:visibility="@{event2.num1 >= 5 &amp;&amp; event2.num2 >= 5 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_flow"
+            app:layout_constraintBottom_toTopOf="@id/btn_flow"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
