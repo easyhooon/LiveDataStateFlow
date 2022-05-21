@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         collectLatestLifecycleFlow(viewModel.eventStateFlow) { event ->
-            Log.d("textFlow", "textFlow collect 호출")
-            Log.d("textFlow", "${event.num1} ${event.num2}")
+            Log.d("eventFlow", "eventFlow collect 호출")
+            Log.d("eventFlow", "${event.num1} ${event.num2}")
             binding.event2 = event
         }
 
